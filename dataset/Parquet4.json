@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "CovidPolicy.parquet",
+				"fileName": "covidpolicy.parquet",
 				"fileSystem": "cosmosdb"
 			},
 			"compressionCodec": "none"
