@@ -13,7 +13,7 @@
 				"fileName": "CovidPolicy.parquet",
 				"fileSystem": "cosmosdb"
 			},
-			"compressionCodec": "snappy"
+			"compressionCodec": "none"
 		},
 		"schema": []
 	},
