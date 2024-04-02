@@ -18,3 +18,4 @@ This semester we will use Codespaces to work with code. If you have experience, 
 * Algorithmic trading: backtesting, ML strategies
 * Statistical arbitrage
 * Various interested topics in ML, stats, math and finance
+# ds310finalproject
