@@ -35,6 +35,9 @@
 			"transformations": [
 				{
 					"name": "union1"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -79,7 +82,25 @@
 				"     ignoreNoFilesFound: false,",
 				"     format: 'parquet') ~> source2",
 				"source1, source2 union(byName: true)~> union1",
-				"union1 sink(allowSchemaDrift: true,",
+				"union1 select(mapColumn(",
+				"          ID,",
+				"          Updated,",
+				"          Confirmed,",
+				"          Confirmed_Change,",
+				"          Deaths,",
+				"          Deaths_Change,",
+				"          Recovered,",
+				"          Recovered_Change,",
+				"          Latitude,",
+				"          Longitude,",
+				"          ISO2,",
+				"          ISO3,",
+				"          Country_Region,",
+				"          load_time",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          Country as string,",
