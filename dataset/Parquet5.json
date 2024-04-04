@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "dbo.Covid19_Metrics.parquet",
 				"fileSystem": "sqlserver"
 			},
 			"compressionCodec": "snappy"
