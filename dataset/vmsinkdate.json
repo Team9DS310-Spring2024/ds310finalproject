@@ -1,5 +1,5 @@
 {
-	"name": "Parquet5_copy1",
+	"name": "vmsinkdate",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage2",
