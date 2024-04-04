@@ -31,7 +31,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Country"
+			"table": "CountryÎ"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
