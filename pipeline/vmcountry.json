@@ -47,7 +47,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Parquet2",
+						"referenceName": "vmsinkcountry",
 						"type": "DatasetReference"
 					}
 				]
