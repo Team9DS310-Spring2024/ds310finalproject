@@ -1,0 +1,41 @@
+{
+	"name": "Parquet5_copy1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Date.parquet",
+				"fileSystem": "sqlserver"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "Country",
+				"type": "UTF8"
+			},
+			{
+				"name": "CountryCode",
+				"type": "UTF8"
+			},
+			{
+				"name": "Latitude",
+				"type": "DECIMAL",
+				"precision": 10,
+				"scale": 5
+			},
+			{
+				"name": "Longitude",
+				"type": "DECIMAL",
+				"precision": 10,
+				"scale": 5
+			}
+		]
+	}
+}
