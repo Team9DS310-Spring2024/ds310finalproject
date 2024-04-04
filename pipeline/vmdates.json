@@ -47,7 +47,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "vmsinkdate",
+						"referenceName": "Parquet5",
 						"type": "DatasetReference"
 					}
 				]
