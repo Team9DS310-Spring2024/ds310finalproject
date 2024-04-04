@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "metrics.parquet",
 				"fileSystem": "sqlserver"
 			},
 			"compressionCodec": "snappy"
