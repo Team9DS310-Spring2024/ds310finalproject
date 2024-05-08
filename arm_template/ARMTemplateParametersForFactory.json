@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "value": "Team09DataFactory"
+        },
+        "AzureDataLakeStorage1_accountKey": {
+            "value": ""
+        },
+        "AzureDataLakeStorage2_accountKey": {
+            "value": ""
+        },
+        "AzureDataLakeStorage3_accountKey": {
+            "value": ""
+        },
+        "AzureSqlDatabase1_connectionString": {
+            "value": ""
+        },
+        "CosmosDbNoSql1_connectionString": {
+            "value": ""
+        },
+        "CosmosDbNoSql2_connectionString": {
+            "value": ""
+        },
+        "Covid19AzureDataLakeStorage2_accountKey": {
+            "value": ""
+        },
+        "GitHub1_credential": {
+            "value": ""
+        },
+        "SqlServer1_connectionString": {
+            "value": ""
+        },
+        "AzureDataLakeStorage1_properties_typeProperties_url": {
+            "value": "https://covid19nt7ktbvtsloni.dfs.core.windows.net/"
+        },
+        "AzureDataLakeStorage2_properties_typeProperties_url": {
+            "value": "https://covid19nt7ktbvtsloni.dfs.core.windows.net/"
+        },
+        "AzureDataLakeStorage3_properties_typeProperties_url": {
+            "value": "https://covid19nt7ktbvtsloni.dfs.core.windows.net/"
+        },
+        "Covid19AzureDataLakeStorage2_properties_typeProperties_url": {
+            "value": "https://covid19nt7ktbvtsloni.dfs.core.windows.net/"
+        },
+        "GitHub1_properties_typeProperties_username": {
+            "value": "pobnial"
+        }
+    }
+}
