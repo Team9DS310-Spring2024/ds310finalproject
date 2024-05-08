@@ -1,5 +1,5 @@
 {
-	"name": "Parquet4",
+	"name": "odspolicy",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -10,9 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "cosmosdb"
+				"fileName": "policy.parquet",
+				"fileSystem": "ods"
 			},
-			"compressionCodec": "none"
+			"compressionCodec": "snappy"
 		},
 		"schema": []
 	},

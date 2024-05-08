@@ -1,5 +1,5 @@
 {
-	"name": "Parquet2",
+	"name": "Parquet1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "dbo.metrics",
-				"fileSystem": "sqlserver"
+				"fileName": "dbo.Covid19_Metrics.parquet",
+				"fileSystem": "workspace"
 			},
 			"compressionCodec": "snappy"
 		},

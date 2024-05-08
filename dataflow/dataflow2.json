@@ -1,0 +1,178 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "country",
+						"type": "DatasetReference"
+					},
+					"name": "VMcountry"
+				},
+				{
+					"dataset": {
+						"referenceName": "dates",
+						"type": "DatasetReference"
+					},
+					"name": "VMdates"
+				},
+				{
+					"dataset": {
+						"referenceName": "policy",
+						"type": "DatasetReference"
+					},
+					"name": "CosmosDBpolicy"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "odscountry",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "odsdates",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				},
+				{
+					"dataset": {
+						"referenceName": "odspolicy",
+						"type": "DatasetReference"
+					},
+					"name": "sink3"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          Country as string,",
+				"          CountryCode as string,",
+				"          Latitude as decimal(10,5),",
+				"          Longitude as decimal(10,5)",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> VMcountry",
+				"source(output(",
+				"          DateKey as integer,",
+				"          FullDate as date,",
+				"          isWeekDay as boolean,",
+				"          DayOfWeek as integer,",
+				"          DayOfMonth as integer,",
+				"          DayOfQuarter as integer,",
+				"          DayOfYear as integer,",
+				"          DayName as string,",
+				"          WeekOfYear as integer,",
+				"          WeekName as string,",
+				"          MonthOfYear as integer,",
+				"          MonthName as string,",
+				"          CalendarQuarter as integer,",
+				"          CalendarQuarterName as string,",
+				"          CalendarYear as integer,",
+				"          FiscalMonth as integer,",
+				"          FiscalMonthName as string,",
+				"          FiscalQuarter as integer,",
+				"          FiscalQuarterName as string,",
+				"          FiscalYear as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> VMdates",
+				"source(output(",
+				"          CountryName as string,",
+				"          CountryCode as string,",
+				"          RegionName as string,",
+				"          RegionCode as string,",
+				"          Jurisdiction as string,",
+				"          Date as string,",
+				"          C1_Schoolclosing as long,",
+				"          C1_Flag as double,",
+				"          C2_Workplaceclosing as double,",
+				"          C2_Flag as double,",
+				"          C3_Cancelpublicevents as double,",
+				"          C3_Flag as double,",
+				"          C4_Restrictionsongatherings as double,",
+				"          C4_Flag as double,",
+				"          C5_Closepublictransport as double,",
+				"          C5_Flag as double,",
+				"          C6_Stayathomerequirements as double,",
+				"          C6_Flag as double,",
+				"          C7_Restrictionsoninternalmovement as double,",
+				"          C7_Flag as double,",
+				"          C8_Internationaltravelcontrols as double,",
+				"          E1_Incomesupport as double,",
+				"          E1_Flag as double,",
+				"          E2_Debtcontractrelief as double,",
+				"          E3_Fiscalmeasures as double,",
+				"          E4_Internationalsupport as double,",
+				"          H1_Publicinformationcampaigns as double,",
+				"          H1_Flag as double,",
+				"          H2_Testingpolicy as double,",
+				"          H3_Contacttracing as double,",
+				"          H4_Emergencyinvestmentinhealthcare as double,",
+				"          H5_Investmentinvaccines as double,",
+				"          H6_FacialCoverings as double,",
+				"          H6_Flag as double,",
+				"          H7_Vaccinationpolicy as double,",
+				"          H7_Flag as double,",
+				"          H8_Protectionofelderlypeople as long,",
+				"          H8_Flag as double,",
+				"          M1_Wildcard as double,",
+				"          StringencyIndex as double,",
+				"          StringencyIndexForDisplay as double,",
+				"          StringencyLegacyIndex as double,",
+				"          StringencyLegacyIndexForDisplay as double,",
+				"          GovernmentResponseIndex as double,",
+				"          GovernmentResponseIndexForDisplay as double,",
+				"          ContainmentHealthIndex as double,",
+				"          ContainmentHealthIndexForDisplay as double,",
+				"          EconomicSupportIndex as double,",
+				"          EconomicSupportIndexForDisplay as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> CosmosDBpolicy",
+				"VMcountry sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     partitionFileNames:['country.parquet'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink1",
+				"VMdates sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     partitionFileNames:['dates.parquet'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink2",
+				"CosmosDBpolicy sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     partitionFileNames:['policy.parquet'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink3"
+			]
+		}
+	}
+}

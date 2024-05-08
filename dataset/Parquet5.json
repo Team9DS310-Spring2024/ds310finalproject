@@ -10,32 +10,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "metrics.parquet",
+				"fileName": "dbo.metrics",
 				"fileSystem": "sqlserver"
 			},
 			"compressionCodec": "snappy"
 		},
-		"schema": [
-			{
-				"name": "Country",
-				"type": "UTF8"
-			},
-			{
-				"name": "CountryCode",
-				"type": "UTF8"
-			},
-			{
-				"name": "Latitude",
-				"type": "DECIMAL",
-				"precision": 10,
-				"scale": 5
-			},
-			{
-				"name": "Longitude",
-				"type": "DECIMAL",
-				"precision": 10,
-				"scale": 5
-			}
-		]
-	}
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

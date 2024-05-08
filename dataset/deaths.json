@@ -1,5 +1,5 @@
 {
-	"name": "Parquet2",
+	"name": "deaths",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -10,12 +10,32 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "dbo.metrics",
-				"fileSystem": "sqlserver"
+				"fileName": "deaths.parquets",
+				"fileSystem": "ods"
 			},
 			"compressionCodec": "snappy"
 		},
 		"schema": [
+			{
+				"name": "Country",
+				"type": "UTF8"
+			},
+			{
+				"name": "CountryCode",
+				"type": "UTF8"
+			},
+			{
+				"name": "Latitude",
+				"type": "DECIMAL",
+				"precision": 10,
+				"scale": 5
+			},
+			{
+				"name": "Longitude",
+				"type": "DECIMAL",
+				"precision": 10,
+				"scale": 5
+			},
 			{
 				"name": "ID",
 				"type": "INT32"
@@ -47,18 +67,6 @@
 			{
 				"name": "Recovered_Change",
 				"type": "INT32"
-			},
-			{
-				"name": "Latitude",
-				"type": "DECIMAL",
-				"precision": 10,
-				"scale": 5
-			},
-			{
-				"name": "Longitude",
-				"type": "DECIMAL",
-				"precision": 10,
-				"scale": 5
 			},
 			{
 				"name": "ISO2",
